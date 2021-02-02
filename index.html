@@ -6,14 +6,21 @@
     <title>Angular JS</title>
 </head>
 <body ng-controller="mainctrl as vm">
-<h3>List of Fruits</h3>
-<h3>Search By Value: </h3>
+<h3>Angular Application</h3>
+<ul>
+    <li ng-repeat="post in vm.posts">
+            <strong>Title:</strong> {{ post.title}} </br>
+            <strong>Body:</strong> {{ post.body}}
+            
+    </li>
+</ul>
+<!-- <h3>Search By Value: </h3>
 <input type="text" ng-model="vm.search">
 <ul>
     <li ng-repeat="fruit in vm.fruits | filter: vm.search">
         {{ fruit | makePlural}}
     </li>
-</ul>
+</ul> -->
 <button class='btn btn-primary' ng-click="vm.alertMe()">click me</button>
 </div>
 

@@ -1,13 +1,14 @@
 var app = angular.module('angularApp', []);
-
+// injected $http service
 app.controller("mainctrl", function($http){ 
 
     var vm = this;
 
-   $http.get("https://pokeapi.co/api/v2/pokemon/")
+   $http.get("https://jsonplaceholder.typicode.com/posts")
    .then(function(response) {
-    console.log(response.data.results);
-    vm.poke = response.data.results;
+    console.log(response.data);
+    vm.posts = response.data
+    
    });
 // get request with error handling 
 
@@ -40,4 +41,4 @@ app.filter("makePlural", function() {
     return function(input) {
         return input + "s";
     }
-})
+}) 
