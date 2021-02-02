@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angular JS</title>
 </head>
-
 <body ng-controller="mainctrl as vm">
-<h1>List of fruits</h1>
-<p>Search by Value: </p>
-<input type="text" ng-model="vm.search ">
+<h3>List of Fruits</h3>
+<h3>Search By Value: </h3>
+<input type="text" ng-model="vm.search">
 <ul>
-    <li ng-repeat="fruit in vm.fruits | filter: vm.search">{{fruit}}</li>
+    <li ng-repeat="fruit in vm.fruits | filter: vm.search">
+        {{ fruit | makePlural}}
+    </li>
 </ul>
 <button class='btn btn-primary' ng-click="vm.alertMe()">click me</button>
+</div>
+
     
  
     
