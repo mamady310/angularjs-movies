@@ -1,15 +1,13 @@
 var app = angular.module('angularApp', []);
 // injected $http service
-app.controller("mainctrl", function($http){ 
+app.controller("mainctrl", function(mainSvc){ 
 
     var vm = this;
 
-   $http.get("https://jsonplaceholder.typicode.com/posts")
-   .then(function(response) {
-    console.log(response.data);
-    vm.posts = response.data
-    
-   });
+    mainSvc.getPosts().then(function(response) {   console.log(response.data)
+        vm.posts = response.data
+    });
+ 
 // get request with error handling 
 
 // $http({
@@ -42,3 +40,9 @@ app.filter("makePlural", function() {
         return input + "s";
     }
 }) 
+
+app.service('mainSvc', function($http) {
+    this.getPosts = function () {
+return  $http.get("https://jsonplaceholder.typicode.com/posts")
+}
+});
